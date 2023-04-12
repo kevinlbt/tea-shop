@@ -1,0 +1,54 @@
+
+@keyframes translateAsideRight {
+    from {
+        width: 0;
+      }
+    
+      to {
+        width: 30%;
+      }
+}
+
+@keyframes translateAsideLeft {
+    from {
+        width: 30%;
+      }
+    
+      to {
+        width: 0;
+      }
+}
+
+.panier {
+    background-color: rgb(245, 216, 182);
+
+    h3, h4 {
+        font-family: 'Playfair Display', serif;
+    }
+
+    ul {
+        li {
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+}
+
+.activeAside {
+    animation: translateAsideRight 0.8s ease-in-out;
+    width: 30%;
+
+    .activeTitle {
+        opacity: 1;
+        transition: opacity 0.8s;
+    }
+}
+
+.hiddenAside {
+    width: 0;
+    animation: translateAsideLeft 0.8s ease-in-out;
+
+    .hiddenTitle {
+        opacity: 0;
+        transition: opacity 0.8s;
+    }
+}

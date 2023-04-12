@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap");
+.nav {
+  background-color: #dedcd9;
+}
+
+.products {
+  transition: all 0.8s;
+}
+.products div .grid-item {
+  background-color: rgb(231, 227, 220);
+}
+.products div .grid-item h2 {
+  font-family: "Playfair Display", serif;
+}
+.products div .grid-item button {
+  font-family: "Roboto", sans-serif;
+}
+.products div .grid-item .price {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background-color: beige;
+  padding: 0.7em;
+  border-radius: 10px;
+}
+
+@keyframes translateAsideRight {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30%;
+  }
+}
+@keyframes translateAsideLeft {
+  from {
+    width: 30%;
+  }
+  to {
+    width: 0;
+  }
+}
+.panier {
+  background-color: rgb(245, 216, 182);
+}
+.panier h3, .panier h4 {
+  font-family: "Playfair Display", serif;
+}
+.panier ul li {
+  font-family: "Roboto", sans-serif;
+}
+
+.activeAside {
+  animation: translateAsideRight 0.8s ease-in-out;
+  width: 30%;
+}
+.activeAside .activeTitle {
+  opacity: 1;
+  transition: opacity 0.8s;
+}
+
+.hiddenAside {
+  width: 0;
+  animation: translateAsideLeft 0.8s ease-in-out;
+}
+.hiddenAside .hiddenTitle {
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.foot {
+  height: 20vh;
+  background-color: #dedcd9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

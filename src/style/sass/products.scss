@@ -1,0 +1,31 @@
+
+
+.products {
+
+    transition: all 0.8s;
+    
+    div {
+
+        .grid-item {
+            background-color: rgb(231, 227, 220);
+
+            h2 {
+                font-family: 'Playfair Display', serif;
+            }
+
+            button {
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+            .price {
+                position: absolute;
+                top: 0.5em;
+                right: 0.5em;
+                background-color: beige;
+                padding: 0.7em;
+                border-radius: 10px;
+            }
+        }
+    }
+}
