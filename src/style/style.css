@@ -3,8 +3,9 @@
   background-color: #dedcd9;
 }
 
-.products {
-  transition: all 0.8s;
+.products h1 {
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
 }
 .products div .grid-item {
   background-color: rgb(231, 227, 220);
@@ -17,7 +18,7 @@
 }
 .products div .grid-item .price {
   position: absolute;
-  top: 0.5em;
+  top: -0.6em;
   right: 0.5em;
   background-color: beige;
   padding: 0.7em;

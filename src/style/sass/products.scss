@@ -2,7 +2,10 @@
 
 .products {
 
-    transition: all 0.8s;
+    h1 {
+        font-family: 'Playfair Display', serif;
+        text-transform: uppercase;
+    }
     
     div {
 
@@ -20,7 +23,7 @@
 
             .price {
                 position: absolute;
-                top: 0.5em;
+                top: -0.6em;
                 right: 0.5em;
                 background-color: beige;
                 padding: 0.7em;
