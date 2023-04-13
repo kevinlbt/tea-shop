@@ -5,7 +5,6 @@ import Products from "./Products"
 import Panier from "./Panier";
 import Footer from "./Footer";
 
-
 export default function Shop () {
 
     const [panierDisplay, setPanierDisplay] = useState(false);

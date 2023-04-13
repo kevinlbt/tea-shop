@@ -34,19 +34,19 @@ export default function Panier ({panierDisplay, panier, setPanier}) {
     const total = panier.reduce((acc, tea) => acc + tea.amount * tea.price, 0) ;
 
     const panierfull = panier.map(({name,price,amount}, index) => (
-        <li className="flex justify-center items-center" key={index}>
+        <li className="flex justify-between items-center" key={index}>
            <p> - {name} {price}€ x {amount} </p>
-           <i onClick={() => handleRemove(name,price)} className="fa-solid fa-xmark px-3 cursor-pointer"></i>
+           <i onClick={() => handleRemove(name,price)} className="text-red-700 text-lg fa-solid fa-xmark px-3 cursor-pointer"></i>
         </li> 
     ));
 
-    return isEmpty ? ( <aside className={`panier w-40 h-auto ${panierDisplay ? "activeAside" : "hiddenAside"}`}>
+    return isEmpty ? ( <aside className={`panier flex flex-col w-40 h-auto ${panierDisplay ? "activeAside" : "hiddenAside"}`}>
                 <h3 className={`text-2xl m-7 ${panierDisplay ? "activeTitle" : "hiddenTitle"}`}>Mon panier</h3>
                 <ul className={`text-2xl m-7 ${panierDisplay ? "activeTitle" : "hiddenTitle"}`}>
                     {panierfull}
                 </ul>
-                <h4 className={`text-2xl m-7 ${panierDisplay ? "activeTitle" : "hiddenTitle"}`}>Total : {total} €</h4>
-                <button onClick={() => setPanier([])} className={`px-3 ml-12 text-xl rounded-md p-2 bg-amber-600 hover:bg-amber-500 hover:text-white ${panierDisplay ? "activeTitle" : "hiddenTitle"}`}>Vider le panier</button>
+                <h4 className={`text-3xl m-7 ${panierDisplay ? "activeTitle" : "hiddenTitle"}`}>Total : {total} €</h4>
+                <button onClick={() => setPanier([])} className={`px-3 w-2/4 mx-auto text-xl rounded-md p-2 bg-amber-600 hover:bg-amber-500 hover:text-white ${panierDisplay ? "activeTitle" : "hiddenTitle"}`}>Vider le panier</button>
             </aside>
             ) : (
             <aside className={`panier w-40 h-auto ${panierDisplay ? "activeAside" : "hiddenAside"}`}>
