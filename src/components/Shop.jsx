@@ -13,7 +13,7 @@ export default function Shop () {
 
     return <React.Fragment>
         <Navbar setPanierDisplay={setPanierDisplay} panier={panier} />
-        <section className="flex">
+        <section className="fondtea flex">
             <Panier 
                 panierDisplay={panierDisplay}
                 panier={panier} 
