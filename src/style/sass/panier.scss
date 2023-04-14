@@ -52,8 +52,9 @@
 
     .hiddenTitle {
         opacity: 0;
-        transition: opacity 0.3s;
+        transition: opacity 0.2s;
     }
+
     .activeTitle {
         opacity: 1;
         transition: opacity 0.8s;
@@ -65,15 +66,12 @@
 .activeAside {
     animation: translateAsideRight 0.8s ease-in-out;
     width: 30%;
-
     
 }
 
 .hiddenAside {
     width: 0;
     animation: translateAsideLeft 0.8s ease-in-out;
-    
-
     
 }
 

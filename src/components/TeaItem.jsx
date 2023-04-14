@@ -1,7 +1,8 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 export default function TeaItem ({setDisplayModal, setModale, displayModal, modale, panier, setPanier, products}) {
 
+    const [modaleAppear, setModaleAppear] = useState(null);
     const wrapperRef = useRef(null);
     useOutsideRemoveModal(wrapperRef);
 
@@ -9,10 +10,13 @@ export default function TeaItem ({setDisplayModal, setModale, displayModal, moda
         useEffect(() => {
            
             function handleClickOutside(event) {
-            if (ref.current && !ref.current.contains(event.target)) {
-                setDisplayModal(false);
-                setModale(null);
-            }
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setModaleAppear(false);
+                    window.setTimeout(() => {
+                        setDisplayModal(false);
+                        setModale(null);
+                    },200)
+                }
             }
             
             document.addEventListener("mousedown", handleClickOutside);
@@ -43,26 +47,30 @@ export default function TeaItem ({setDisplayModal, setModale, displayModal, moda
     function handleDisplayModale (index) {
         setDisplayModal(true);
         setModale(index);
+        setModaleAppear(true);
     }
 
     function handleRemoveModale () {
-        setDisplayModal(false);
-        setModale(null);
+        setModaleAppear(false);
+        window.setTimeout(() => {
+            setDisplayModal(false);
+            setModale(null);
+        },200)
     }
 
     return <React.Fragment>
             {products.map(({name, cover, price, category}, index) => (
                 <div key={`${name}-${index}`} className="relative grid-item flex flex-col py-5 px-9 mb-5 rounded-3xl">
-                    <img className="w-64 h-64 lg:w-96 lg:h-auto rounded-xl object-cover" src={cover} alt="" />
+                    <img className="w-64 h-auto lg:w-96 lg:h-auto rounded-xl object-cover" src={cover} alt="" />
                     <h2 className="text-2xl m-2">{name}</h2>
                     <p className="text-xl m-1">{category}</p>
-                    <p className="price text-xl m-1">{price} €</p>
+                    <p className="price text-2xl m-1">{price} €</p>
                     <div className="flex">
                         <button onClick={() => handleClick(name,price)} className="w-2/4 px-2 py-1 m-2 text-xl rounded-md bg-amber-600 hover:bg-amber-500">ajouter</button>
                         <button onClick={() => handleDisplayModale(index)} className="w-2/4 px-2 py-1 m-2 text-xl rounded-md border-2 border-slate-700 bg-transparent hover:border-slate-300">details</button>
                     </div>
                     {displayModal && modale === index ? (
-                        <div ref={wrapperRef} className="modale relative">
+                        <div ref={wrapperRef} className={`modale relative ${modaleAppear ? "modaleAppear" : "modaleDisappear"}`}>
                             <i onClick={handleRemoveModale} class="cross-modale fa-solid fa-square-xmark cursor-pointer"></i>
                             <article>
                                 <h2 className="text-2xl m-2">{name}</h2>
