@@ -1,12 +1,20 @@
 import React from "react";
 
 
-export default function Navbar ({setPanierDisplay, panier}) {
+export default function Navbar ({setPanierDisplay, panier, panierDisplay}) {
 
     const total = panier.reduce((acc, tea) => acc + tea.amount * tea.price, 0) ;
 
     function handleClick () {
-        setPanierDisplay(v => !v)
+        if (panierDisplay === null) {
+            setPanierDisplay("yes")
+        }
+        else if (panierDisplay === "yes") {
+            setPanierDisplay("no")
+        }
+        else if (panierDisplay === "no") {
+            setPanierDisplay("yes")
+        }
     }
 
 

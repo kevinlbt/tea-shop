@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { teaData } from "../data/teaData"
 import Navbar from "./Navbar";
 import Products from "./Products"
@@ -7,12 +7,16 @@ import Footer from "./Footer";
 
 export default function Shop () {
 
-    const [panierDisplay, setPanierDisplay] = useState(false);
-    const [panier, setPanier] = useState([]);
+    const [panierDisplay, setPanierDisplay] = useState(null);
+    const [panier, setPanier] = useState(localStorage.getItem('panierItems') ? JSON.parse(localStorage.getItem('panierItems')) : [] );
     const [products, setProducts] = useState(teaData)
 
+    useEffect(() => {
+        localStorage.setItem('panierItems', JSON.stringify(panier));
+    }, [panier]); 
+
     return <React.Fragment>
-        <Navbar setPanierDisplay={setPanierDisplay} panier={panier} />
+        <Navbar setPanierDisplay={setPanierDisplay} panier={panier} panierDisplay={panierDisplay} />
         <section className="fondtea flex">
             <Panier 
                 panierDisplay={panierDisplay}

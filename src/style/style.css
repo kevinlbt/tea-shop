@@ -35,7 +35,7 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
-  top: 10em;
+  top: 7em;
   left: 12em;
   padding: 4em;
   background-color: rgb(236, 217, 200);
@@ -86,31 +86,49 @@
   }
 }
 .panier {
-  background-color: rgb(245, 216, 182);
+  position: sticky;
+  top: 0;
+  background-color: rgb(243, 228, 211);
+  width: 0;
+  height: 47rem;
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  .panier {
+    height: auto;
+  }
 }
 .panier h3, .panier h4 {
   font-family: "Playfair Display", serif;
+  text-align: center;
 }
-.panier ul li {
+.panier ul li p {
   font-family: "Roboto", sans-serif;
+  font-size: 23px;
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  .panier ul li p {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.panier .hiddenTitle {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.panier .activeTitle {
+  opacity: 1;
+  transition: opacity 0.8s;
+  transition-delay: 0.7s;
 }
 
 .activeAside {
   animation: translateAsideRight 0.8s ease-in-out;
   width: 30%;
 }
-.activeAside .activeTitle {
-  opacity: 1;
-  transition: opacity 0.8s;
-}
 
 .hiddenAside {
   width: 0;
   animation: translateAsideLeft 0.8s ease-in-out;
-}
-.hiddenAside .hiddenTitle {
-  opacity: 0;
-  transition: opacity 0.8s;
 }
 
 .foot {

@@ -20,35 +20,60 @@
 }
 
 .panier {
-    background-color: rgb(245, 216, 182);
+    position: sticky; 
+    top: 0;
+    background-color: rgb(243, 228, 211);
+    width: 0;
+    height: 47rem;
+
+    @media (min-width:640px) and (max-width:1024px) { 
+        height: auto;
+    }
 
     h3, h4 {
         font-family: 'Playfair Display', serif;
+        text-align: center;
     }
 
     ul {
         li {
-            font-family: 'Roboto', sans-serif;
+            p {
+                font-family: 'Roboto', sans-serif;
+                font-size: 23px;
+
+                @media (min-width:640px) and (max-width:1024px) { 
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
         }
     }
+
+    .hiddenTitle {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .activeTitle {
+        opacity: 1;
+        transition: opacity 0.8s;
+        transition-delay: 0.7s;
+    }
+
 }
 
 .activeAside {
     animation: translateAsideRight 0.8s ease-in-out;
     width: 30%;
 
-    .activeTitle {
-        opacity: 1;
-        transition: opacity 0.8s;
-    }
+    
 }
 
 .hiddenAside {
     width: 0;
     animation: translateAsideLeft 0.8s ease-in-out;
+    
 
-    .hiddenTitle {
-        opacity: 0;
-        transition: opacity 0.8s;
-    }
+    
 }
+
+

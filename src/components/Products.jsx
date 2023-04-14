@@ -35,7 +35,7 @@ export default function Products ({setPanier, panier, products, setProducts}) {
     return <section className="products w-full flex flex-col">
                 <h1 className="text-5xl text-left m-12">Nos Thés</h1>
                 <Select setProducts={setProducts} />
-                <div className="grid grid-cols-3 gap-8 justify-items-center content-center my-12 pl-8">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center content-center my-12 px-3 lg:pl-8">
                     <TeaItem 
                         products={products}
                         setModale={setModale} 

@@ -53,7 +53,7 @@ export default function TeaItem ({setDisplayModal, setModale, displayModal, moda
     return <React.Fragment>
             {products.map(({name, cover, price, category}, index) => (
                 <div key={`${name}-${index}`} className="relative grid-item flex flex-col py-5 px-9 mb-5 rounded-3xl">
-                    <img className="w-96 h-96 rounded-xl object-contain" src={cover} alt="" />
+                    <img className="w-64 h-64 lg:w-96 lg:h-auto rounded-xl object-cover" src={cover} alt="" />
                     <h2 className="text-2xl m-2">{name}</h2>
                     <p className="text-xl m-1">{category}</p>
                     <p className="price text-xl m-1">{price} €</p>
